@@ -1,8 +1,11 @@
 package com.example.helloworld
 
+import android.app.Activity
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -49,7 +52,6 @@ class MainActivity : AppCompatActivity() {
             Log.i("Daniel", "Tapped on button")
 
             // Get a reference to the background view.
-            //findViewById<androidx.constraintlayout.widget.ConstraintLayout>(R.id.backgroundView).setBackgroundColor(getResources().getColor(R.color.purple_200))
             var new_text = findViewById<EditText>(R.id.et_simple).text.toString()
             if (new_text.length != 0) {
                 Log.i("Daniel", new_text)
@@ -58,6 +60,18 @@ class MainActivity : AppCompatActivity() {
             else {
                 Log.i("Daniel", "Empty String")
                 findViewById<TextView>(R.id.textView).setText("Hello from Daniel!")
+            }
+
+            // To close keyboard.
+            val view = currentFocus
+            if (view != null) {
+                view.clearFocus()
+                val inputMethodManager =
+                    getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
+                inputMethodManager.hideSoftInputFromWindow(
+                    view.windowToken,
+                    InputMethodManager.HIDE_NOT_ALWAYS
+                )
             }
 
 
