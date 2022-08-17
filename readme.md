@@ -5,7 +5,7 @@ Hello world Android app that allows user to click buttons to change text and bac
 
 ### App Walk-though
 
-<img src="http://g.recordit.co/aQrapwXmBM.gif" width=200><br>
+<img src="http://g.recordit.co/aQrapwXmBM.gif" width=300><br>
 
 ### Required User Stories
 - [x] 1. User sees custom text in a label - Hello from {name}!
